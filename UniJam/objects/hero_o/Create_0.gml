@@ -1,0 +1,15 @@
+scabbard = instance_create_layer(x,y,"scabbard",scabbard_o);
+sword = instance_create_layer(x,y,"sword",sword_o);
+sword.hero=self;
+scabbard.image_speed=0;
+hsp=0;
+vsp=0;
+playerControl = true;
+walkSpd = 0.35;
+jumpPower = 4
+grv = 0.2
+jumpBuffer = 0
+sprite_index=heroIdle_s
+frictGround = 1.15
+frictAir = 1.1
+drawAng=0
