@@ -26,13 +26,24 @@ if mouse_check_button(mb_middle) and !spin{ //temp
 	spinStart=naturalAngle
 }
 
+
 if mouse_check_button(mb_right){
+	/*
 	canAttack=false
 	attackDirection = 180-point_direction(mouse_x,mouse_y,hero.x,hero.y)
 	xTo = hero.x + attackFloatDist*dcos(attackDirection);
 	yTo = hero.y + attackFloatDist*dsin(attackDirection);
 	direction = blend_angles(direction,reformat_angle(point_direction(hero.x,hero.y,mouse_x,mouse_y)+90),angleLerpAm,true);
 	image_angle=direction;
+	*/
+	with instance_create_layer(x,y,layer,returningSword_o){
+		direction=other.direction
+		image_angle=direction
+		floatLerpAm = other.floatLerpAm
+		hero=other.hero
+		swordNum=1
+	}
+	instance_destroy()
 }
 
 if attackDl>-10 attackDl--
@@ -71,17 +82,20 @@ if canAttack and mouse_check_button(mb_left){
 	vsp = ((target.y + attackFloatDist*dsin(newDirection))-y)/attackTimeMax
 }
 
-if attacking{
-	/*
+if existTime<30 existTime++
+if existTime<30 and point_distance(0,0,vsp,hsp)>10{
 	with instance_create_layer(x,y,layer,objectMarker_o){
 		depth ++;
 		sprite_index=other.sprite_index
 		image_index=other.image_index
-		shader=whiteFlash_sh
 		image_angle=other.image_angle
 		decay=0.1
-		image_alpha=other.attackTime/other.attackTimeMax
+		image_alpha=0.25
 	}
+}
+
+if attacking{
+	/*
 	*/
 	attackDirection += attackSpinSpeed
 	direction = blend_angles(direction,reformat_angle(attackDirection+90),attackTimeMax,true);
@@ -109,8 +123,13 @@ if attacking{
 		}
 	}
 } else{
-	hsp = (xTo-x)/floatLerpAm;
-	vsp = (yTo-y)/floatLerpAm;
+	if existTime<15{
+		hsp = (xTo-x)/floatLerpAm * (existTime/15);
+		vsp = (yTo-y)/floatLerpAm * (existTime/15);
+	} else {
+		hsp = (xTo-x)/floatLerpAm;
+		vsp = (yTo-y)/floatLerpAm;
+	}
 }
 
 x += hsp;

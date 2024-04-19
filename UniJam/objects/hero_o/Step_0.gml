@@ -1,4 +1,3 @@
-scabbard_o.image_index = sword!=noone;
 scabbard_o.image_angle = drawAng
 scabbard_o.image_xscale = image_xscale
 
@@ -78,18 +77,94 @@ if onGround{
 	if abs(hsp)>0.2{
 		image_xscale = sign(hsp)
 		image_speed=2
-		sprite_index = heroWalk_s
+		sprite_index = heroWalkLower_s
 		drawAng=blend_angles(drawAng,reformat_angle(-5*image_xscale),5)
 	} else {
-		sprite_index = heroIdle_s
-		drawAng=blend_angles(drawAng,0,5)
-	}
+		sprite_index = heroIdleLower_s
+			drawAng=blend_angles(drawAng,0,5)
+}
 } else {
-	sprite_index=heroInAir_s
+	sprite_index=heroInAirLower_s
 	image_speed=0
 	if vsp<0{
 		image_index=1
 	} else {
 		image_index=0
+	}
+}
+
+
+if drawing==0 and mouse_check_button(mb_left) and sword==noone{
+	spriteUpper = heroDraw1Upper_s
+	imageUpper=0
+	drawing=1
+	upperImageSpeed=0.2
+	scabbard.image_index=1
+	if instance_exists(swordDefence_o) or instance_exists(returningSword_o) scabbard.image_index=3
+}
+if drawing==0 and mouse_check_button(mb_right) and sword==noone{
+	spriteUpper = heroDraw2Upper_s
+	imageUpper=0
+	drawing=2
+	upperImageSpeed=0.2
+	scabbard.image_index=2
+	if instance_exists(sword_o) or instance_exists(returningSword_o) scabbard.image_index=3
+}
+if drawing==1{
+	if imageUpper>6.8 and !instance_exists(sword_o) and upperImageSpeed>0{
+		sword = instance_create_layer(x,y,"sword",sword_o)
+		sword.hero=self
+		sword.direction = 65
+		sword.image_angle=sword.direction;
+	}
+	if upperImageSpeed<0 and imageUpper<0.5{
+		drawing=0
+		if !instance_exists(returningSword_o) and !instance_exists(swordDefence_o) scabbard.image_index=0
+		else scabbard.image_index=2
+	}
+}
+if drawing==2{
+	if imageUpper>5.8 and !instance_exists(swordDefence_o) and upperImageSpeed>0{
+		sword = instance_create_layer(x,y,"sword",swordDefence_o)
+		sword.hero=self
+		sword.direction = 65
+		sword.image_angle=sword.direction;
+	}
+	if upperImageSpeed<0 and imageUpper<0.5{
+		drawing=0
+		if !instance_exists(returningSword_o) and !instance_exists(sword_o) scabbard.image_index=0
+		else scabbard.image_index=1
+	}
+}
+
+if drawing==0{
+	switch sprite_index{
+		case heroWalkLower_s:
+			spriteUpper=heroWalkUpper_s
+			imageUpper=image_index
+		break;
+		case heroIdleLower_s:
+			spriteUpper=heroIdleUpper_s
+			imageUpper=image_index
+		break;
+		case heroInAirLower_s:
+			spriteUpper=heroInAirUpper_s
+			imageUpper=image_index
+		break;
+	}
+} else {
+	if drawing==1{
+		if !instance_exists(sword_o) imageUpper+=upperImageSpeed
+		else drawing=false
+		if imageUpper >= sprite_get_number(spriteUpper){
+			imageUpper-=sprite_get_number(spriteUpper)
+		}
+	} 
+	if drawing==2{
+		if !instance_exists(swordDefence_o) imageUpper+=upperImageSpeed
+		else drawing=false
+		if imageUpper >= sprite_get_number(spriteUpper){
+			imageUpper-=sprite_get_number(spriteUpper)
+		}
 	}
 }

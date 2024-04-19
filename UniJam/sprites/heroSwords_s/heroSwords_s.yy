@@ -3,9 +3,9 @@
   "%Name":"heroSwords_s",
   "bboxMode":0,
   "bbox_bottom":21,
-  "bbox_left":4,
+  "bbox_left":0,
   "bbox_right":21,
-  "bbox_top":8,
+  "bbox_top":0,
   "collisionKind":1,
   "collisionTolerance":0,
   "DynamicTexturePage":false,
@@ -14,6 +14,8 @@
   "frames":[
     {"$GMSpriteFrame":"","%Name":"9dafbe22-ed2b-47ee-8ca3-7de49afd768a","name":"9dafbe22-ed2b-47ee-8ca3-7de49afd768a","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
     {"$GMSpriteFrame":"","%Name":"339c8327-7db6-48de-8261-f93724b272f2","name":"339c8327-7db6-48de-8261-f93724b272f2","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"68307d48-4cc8-4532-9b94-2c206962a656","name":"68307d48-4cc8-4532-9b94-2c206962a656","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"9551e05f-ea0a-451e-9d7e-d6eae8cbe5d0","name":"9551e05f-ea0a-451e-9d7e-d6eae8cbe5d0","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,
@@ -50,7 +52,7 @@
     },
     "eventStubScript":null,
     "eventToFunction":{},
-    "length":2.0,
+    "length":4.0,
     "lockOrigin":false,
     "moments":{
       "$KeyframeStore<MomentsEventKeyframe>":"",
@@ -75,6 +77,12 @@
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
                 "0":{"$SpriteFrameKeyframe":"","Id":{"name":"339c8327-7db6-48de-8261-f93724b272f2","path":"sprites/heroSwords_s/heroSwords_s.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
               },"Disabled":false,"id":"adb72fba-bbca-483f-9beb-f29833d2d13c","IsCreationKey":false,"Key":1.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"68307d48-4cc8-4532-9b94-2c206962a656","path":"sprites/heroSwords_s/heroSwords_s.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"83494419-1f37-4953-8f4f-d485096d4406","IsCreationKey":false,"Key":2.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"9551e05f-ea0a-451e-9d7e-d6eae8cbe5d0","path":"sprites/heroSwords_s/heroSwords_s.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"1c1e4998-37ce-4aaa-ac86-a8c0cd1fcf41","IsCreationKey":false,"Key":3.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange":null,
