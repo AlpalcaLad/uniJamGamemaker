@@ -32,6 +32,7 @@
   ],
   "ResourceOrderSettings":[
     {"name":"client_o","order":1,"path":"objects/client_o/client_o.yy",},
+    {"name":"objectMarker_o","order":1,"path":"objects/objectMarker_o/objectMarker_o.yy",},
     {"name":"scabbard_o","order":1,"path":"objects/scabbard_o/scabbard_o.yy",},
     {"name":"solidWall_o","order":1,"path":"objects/solidWall_o/solidWall_o.yy",},
     {"name":"sword_o","order":2,"path":"objects/sword_o/sword_o.yy",},
@@ -41,6 +42,7 @@
     {"name":"rectangle_check","order":3,"path":"scripts/rectangle_check/rectangle_check.yy",},
     {"name":"reformat_angle","order":1,"path":"scripts/reformat_angle/reformat_angle.yy",},
     {"name":"spawn_in_radius","order":4,"path":"scripts/spawn_in_radius/spawn_in_radius.yy",},
+    {"name":"pass_sh","order":1,"path":"shaders/pass_sh/pass_sh.yy",},
     {"name":"blood_s","order":2,"path":"sprites/blood_s/blood_s.yy",},
     {"name":"dust_s","order":1,"path":"sprites/dust_s/dust_s.yy",},
     {"name":"empty_purple_1","order":2,"path":"sprites/empty_purple_1/empty_purple_1.yy",},

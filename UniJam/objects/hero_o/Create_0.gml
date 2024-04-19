@@ -15,3 +15,5 @@ frictGround = 1.15
 frictAir = 1.1
 drawAng=0
 flipping = false
+flipAllowed=false
+flipped=false

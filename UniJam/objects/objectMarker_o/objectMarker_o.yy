@@ -1,17 +1,17 @@
 {
   "$GMObject":"",
-  "%Name":"sword_o",
+  "%Name":"objectMarker_o",
   "eventList":[
     {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":17,"eventType":9,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"sword_o",
+  "name":"objectMarker_o",
   "overriddenProperties":[],
   "parent":{
-    "name":"player",
-    "path":"folders/Objects/entities/player.yy",
+    "name":"particles",
+    "path":"folders/Objects/particles.yy",
   },
   "parentObjectId":null,
   "persistent":false,
@@ -31,10 +31,7 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":{
-    "name":"sword_s",
-    "path":"sprites/sword_s/sword_s.yy",
-  },
+  "spriteId":null,
   "spriteMaskId":null,
   "visible":true,
 }

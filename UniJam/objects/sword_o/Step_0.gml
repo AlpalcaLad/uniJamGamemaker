@@ -72,8 +72,19 @@ if canAttack and mouse_check_button(mb_left){
 }
 
 if attacking{
+	/*
+	with instance_create_layer(x,y,layer,objectMarker_o){
+		depth ++;
+		sprite_index=other.sprite_index
+		image_index=other.image_index
+		shader=whiteFlash_sh
+		image_angle=other.image_angle
+		decay=0.1
+		image_alpha=other.attackTime/other.attackTimeMax
+	}
+	*/
 	attackDirection += attackSpinSpeed
-	direction = blend_angles(direction,reformat_angle(attackDirection+155),attackTimeMax,true);
+	direction = blend_angles(direction,reformat_angle(attackDirection+90),attackTimeMax,true);
 	image_angle=direction;
 	attackTime--;
 	if attackTime<=0 {

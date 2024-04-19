@@ -1,4 +1,6 @@
 scabbard_o.image_index = sword!=noone;
+scabbard_o.image_angle = drawAng
+scabbard_o.image_xscale = image_xscale
 
 var onGround = place_meeting(x,y+1,solid_o)
 var onWall = place_meeting(x+1,y,solid_o) or place_meeting(x-1,y,solid_o)
@@ -24,7 +26,17 @@ vsp += grv
 
 if onGround and jumpBuffer>0{
 	vsp = -jumpPower
+	flipAllowed = false
+	flipped=false
 }
+if jumpBuffer<0 and !onGround flipAllowed=true;
+if jumpBuffer > 0 and flipAllowed and !onGround and !flipped{
+	vsp = -jumpPower*0.75
+	flipAllowed = false
+	flipping=true
+	flipped=true
+}
+if onGround flipping=false
 
 var frict = onGround ? frictGround : frictAir
 hsp/=frict
@@ -57,6 +69,11 @@ y += vsp
 //animation
 scabbard.x=x
 scabbard.y=y
+
+if flipping{
+	drawAng=blend_angles(drawAng,drawAng-40*image_xscale,5);
+}
+
 if onGround{
 	if abs(hsp)>0.2{
 		image_xscale = sign(hsp)

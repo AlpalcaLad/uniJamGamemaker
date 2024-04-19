@@ -23,3 +23,4 @@ bloodCount=10;
 freeRoam=true;
 spin=false
 spinStart=0
+image_speed=0

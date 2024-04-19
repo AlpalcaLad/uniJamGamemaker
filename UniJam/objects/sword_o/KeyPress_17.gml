@@ -1,0 +1,1 @@
+freeRoam = 1 - freeRoam
