@@ -27,7 +27,7 @@ if mouse_check_button(mb_middle) and !spin{ //temp
 }
 
 
-if mouse_check_button(mb_right){
+if mouse_check_button(mb_right) or keyboard_check(ord("F")){
 	/*
 	canAttack=false
 	attackDirection = 180-point_direction(mouse_x,mouse_y,hero.x,hero.y)
@@ -77,6 +77,10 @@ if canAttack and mouse_check_button(mb_left){
 		attackSpinSpeed = (newDirection-attackDirection)/attackTimeMax
 	}
 	attacking=true
+	if allowQuickStrike{
+		target.hsp += hsp/8
+		target.vsp += vsp/8
+	}
 	attackTime=attackTimeMax
 	hsp = ((target.x + attackFloatDist*dcos(newDirection))-x)/attackTimeMax
 	vsp = ((target.y + attackFloatDist*dsin(newDirection))-y)/attackTimeMax

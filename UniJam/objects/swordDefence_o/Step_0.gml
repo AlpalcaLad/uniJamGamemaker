@@ -26,7 +26,7 @@ image_angle=direction;
 if attackDl>-10 attackDl--
 
 
-if mouse_check_button(mb_left){
+if mouse_check_button(mb_left) or keyboard_check(ord("F")){
 	with instance_create_layer(x,y,layer,returningSword_o){
 		direction=other.direction
 		image_angle=direction
