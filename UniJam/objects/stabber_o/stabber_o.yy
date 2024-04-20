@@ -13,8 +13,8 @@
   "name":"stabber_o",
   "overriddenProperties":[],
   "parent":{
-    "name":"archer",
-    "path":"folders/Objects/entities/enemy/archer.yy",
+    "name":"stabber",
+    "path":"folders/Objects/entities/enemy/stabber.yy",
   },
   "parentObjectId":{
     "name":"enemy_o",

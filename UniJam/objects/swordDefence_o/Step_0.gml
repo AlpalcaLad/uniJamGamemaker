@@ -7,23 +7,23 @@
 if spin{
 	naturalAngle=reformat_angle(naturalAngle+15)
 	if naturalAngle==spinStart spin=false
+	direction = blend_angles(direction,naturalAngle,angleLerpAm,true);
+	image_angle=direction
 }
-if mouse_check_button(mb_middle) and !spin{ //temp
-	spin=true
-	spinStart=naturalAngle
+//if mouse_check_button(mb_middle) and !spin{ //temp
+//	spin=true
+//	spinStart=naturalAngle
+//}
+
+
+if !spin{
+	canAttack=false
+	attackDirection = 180-point_direction(mouse_x,mouse_y,hero.x,hero.y)
+	xTo = hero.x + attackFloatDist*dcos(attackDirection);
+	yTo = hero.y + attackFloatDist*dsin(attackDirection);
+	direction = blend_angles(direction,reformat_angle(point_direction(hero.x,hero.y,mouse_x,mouse_y)+90),angleLerpAm,true);
+	image_angle=direction;
 }
-
-
-
-canAttack=false
-attackDirection = 180-point_direction(mouse_x,mouse_y,hero.x,hero.y)
-xTo = hero.x + attackFloatDist*dcos(attackDirection);
-yTo = hero.y + attackFloatDist*dsin(attackDirection);
-direction = blend_angles(direction,reformat_angle(point_direction(hero.x,hero.y,mouse_x,mouse_y)+90),angleLerpAm,true);
-image_angle=direction;
-
-
-if attackDl>-10 attackDl--
 
 
 if mouse_check_button(mb_left) or keyboard_check(ord("F")){

@@ -113,6 +113,7 @@ if attacking{
 			target.hp-=2
 		}
 		if object_get_parent(target.object_index)!=enemy_o or target.hp>0{
+			audio_play_sound(swordHit_snd,1,false,0.5,0,random_range(0.8,1.2))
 			for (var i=0; i<50; i++){
 				var multiplier = i/bloodCount/attackTimeMax
 				var blood = instance_create_layer(target.x-hsp*multiplier,target.y-vsp*multiplier,"particles",blood_o)
@@ -131,6 +132,8 @@ if attacking{
 					blood.image_speed=2
 				}
 			}
+		} else {
+			audio_play_sound(swordAir_snd,1,false,0.75,0,random_range(0.8,1.2))
 		}
 	}
 } else{

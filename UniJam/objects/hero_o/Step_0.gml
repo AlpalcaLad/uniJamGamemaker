@@ -26,7 +26,7 @@ if (playerControl){
 
 if jumpBuffer>-1 jumpBuffer--;
 var grvTemp = grv*client_o.time_speed
-vsp += grvTemp
+if vsp<vspMax-grvTemp vsp += grvTemp
 
 if onGround and jumpBuffer>0{
 	vsp = -jumpPower
@@ -55,6 +55,7 @@ if place_meeting(x,y+vsp*client_o.time_speed,solid_o){
 	while !place_meeting(x,y+sign(vsp),solid_o){
 		y += sign(vsp)
 	}
+	if (vsp)>1 audio_play_sound(jump_snd,1,false,0.5*vsp/vspMax,0,random_range(0.8,1.2))
 	vsp = 0
 }
 if place_meeting(x+hsp*client_o.time_speed,y+vsp*client_o.time_speed,solid_o){
@@ -80,8 +81,13 @@ if flipping{
 
 if onGround{
 	if abs(hsp)>0.2{
+		distanceCovered+=abs(hsp)
+		if distanceCovered>footstepDistance{
+			distanceCovered-=footstepDistance
+			audio_play_sound(grass_snd,1,false,4+random_range(0,1),0,random_range(0.8,1.2))
+		}
 		image_xscale = sign(hsp)
-		image_speed=2
+		image_speed=3
 		sprite_index = heroWalkLower_s
 		drawAng=blend_angles(drawAng,reformat_angle(-5*image_xscale),5/client_o.time_speed)
 	} else {
@@ -99,7 +105,7 @@ if onGround{
 }
 
 
-if drawing==0 and mouse_check_button(mb_left) and sword==noone{
+if canDraw and drawing==0 and mouse_check_button(mb_left) and sword==noone{
 	spriteUpper = heroDraw1Upper_s
 	imageUpper=0
 	drawing=1
@@ -107,7 +113,7 @@ if drawing==0 and mouse_check_button(mb_left) and sword==noone{
 	scabbard.image_index=1
 	if instance_exists(swordDefence_o) or instance_exists(returningSword_o) scabbard.image_index=3
 }
-if drawing==0 and mouse_check_button(mb_right) and sword==noone{
+if canDraw and drawing==0 and mouse_check_button(mb_right) and sword==noone{
 	spriteUpper = heroDraw2Upper_s
 	imageUpper=0
 	drawing=2

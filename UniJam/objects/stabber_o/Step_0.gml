@@ -112,6 +112,7 @@ if !attacking{
 			client_o.freezeTime+=5
 			camera_o.screenShake+=10
 			attacked=true
+			audio_play_sound(swordHit_snd,1,false,0.25,0,random_range(0.8,1.2))
 		}
 	}
 	if imageUpper>sprite_get_number(spriteUpper)-1{

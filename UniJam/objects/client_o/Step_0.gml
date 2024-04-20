@@ -5,3 +5,5 @@ if freezeTime>0{
 	freezeTime--
 	time_speed_targ=freezeGameSpeed
 } else time_speed_targ=1
+
+var lay = layer_get_id("backTiles")

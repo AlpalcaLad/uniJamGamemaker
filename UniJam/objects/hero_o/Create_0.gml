@@ -25,3 +25,6 @@ lastIndex=0
 upperImageSpeed=0
 oldTimeSpeed=1
 hitTime=0
+distanceCovered=0
+footstepDistance=32
+vspMax=10
