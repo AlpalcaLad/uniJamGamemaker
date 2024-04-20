@@ -33,8 +33,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"sword_s",
-    "path":"sprites/sword_s/sword_s.yy",
+    "name":"swordDefence_s",
+    "path":"sprites/swordDefence_s/swordDefence_s.yy",
   },
   "spriteMaskId":null,
   "visible":true,

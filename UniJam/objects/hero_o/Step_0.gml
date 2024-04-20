@@ -1,8 +1,6 @@
 if (oldTimeSpeed!=client_o.time_speed){
 	image_speed/=oldTimeSpeed
 	image_speed*=client_o.time_speed
-	upperImageSpeed/=oldTimeSpeed
-	upperImageSpeed*=client_o.time_speed
 }
 
 scabbard_o.image_angle = drawAng
@@ -161,17 +159,19 @@ if drawing==0{
 	}
 } else {
 	if drawing==1{
-		if !instance_exists(sword_o) imageUpper+=upperImageSpeed
+		if !instance_exists(sword_o) imageUpper+=upperImageSpeed*sqrt(client_o.time_speed)
 		else drawing=false
 		if imageUpper >= sprite_get_number(spriteUpper){
 			imageUpper-=sprite_get_number(spriteUpper)
 		}
 	} 
 	if drawing==2{
-		if !instance_exists(swordDefence_o) imageUpper+=upperImageSpeed
+		if !instance_exists(swordDefence_o) imageUpper+=upperImageSpeed*sqrt(client_o.time_speed)
 		else drawing=false
 		if imageUpper >= sprite_get_number(spriteUpper){
 			imageUpper-=sprite_get_number(spriteUpper)
 		}
 	}
 }
+if hitTime>0 {hitTime--; image_blend=c_red}
+else {if image_blend==c_red {image_blend=c_white}}

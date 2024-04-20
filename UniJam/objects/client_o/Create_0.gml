@@ -7,3 +7,5 @@ afterImageFreq=20
 afterImageDl=0
 time_speed_targ=1
 //window_set_cursor(cr_none);
+freezeTime=0
+freezeGameSpeed=0.1

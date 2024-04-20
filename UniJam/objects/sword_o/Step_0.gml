@@ -46,7 +46,7 @@ if mouse_check_button(mb_right) or keyboard_check(ord("F")){
 	instance_destroy()
 }
 
-if attackDl>-10 attackDl--
+if attackDl>-10 attackDl-=client_o.time_speed
 
 if !mouse_check_button(mb_right){
 	if target!=noone and !spin{
@@ -54,12 +54,12 @@ if !mouse_check_button(mb_right){
 			if attackDl <= -10 attackDirection = 180-point_direction(mouse_x,mouse_y,target.x,target.y)
 			xTo = target.x + attackFloatDist*dcos(attackDirection);
 			yTo = target.y + attackFloatDist*dsin(attackDirection);
-			direction = blend_angles(direction,reformat_angle(point_direction(target.x,target.y,mouse_x,mouse_y)-90),angleLerpAm,true);
+			direction = blend_angles(direction,reformat_angle(point_direction(target.x,target.y,mouse_x,mouse_y)-90),angleLerpAm/client_o.time_speed,true);
 			image_angle=direction;
 			if attackDl<0 canAttack=true;
 		}
 	} else {
-		direction = blend_angles(direction,naturalAngle,angleLerpAm,true);
+		direction = blend_angles(direction,naturalAngle,angleLerpAm/client_o.time_speed,true);
 		image_angle=direction
 		xTo = mouse_x
 		yTo = mouse_y
@@ -136,5 +136,5 @@ if attacking{
 	}
 }
 
-x += hsp;
-y += vsp;
+x += hsp*client_o.time_speed;
+y += vsp*client_o.time_speed;

@@ -42,7 +42,6 @@
   "ResourceOrderSettings":[
     {"name":"client_o","order":1,"path":"objects/client_o/client_o.yy",},
     {"name":"enemy_o","order":5,"path":"objects/enemy_o/enemy_o.yy",},
-    {"name":"thrownKnife_o","order":1,"path":"objects/thrownKnife_o/thrownKnife_o.yy",},
     {"name":"objectMarker_o","order":1,"path":"objects/objectMarker_o/objectMarker_o.yy",},
     {"name":"returningSword_o","order":3,"path":"objects/returningSword_o/returningSword_o.yy",},
     {"name":"scabbard_o","order":1,"path":"objects/scabbard_o/scabbard_o.yy",},
@@ -50,6 +49,7 @@
     {"name":"sword_o","order":2,"path":"objects/sword_o/sword_o.yy",},
     {"name":"swordDefence_o","order":4,"path":"objects/swordDefence_o/swordDefence_o.yy",},
     {"name":"target_o","order":4,"path":"objects/target_o/target_o.yy",},
+    {"name":"thrownKnife_o","order":1,"path":"objects/thrownKnife_o/thrownKnife_o.yy",},
     {"name":"angle_diff","order":5,"path":"scripts/angle_diff/angle_diff.yy",},
     {"name":"distance_rough","order":2,"path":"scripts/distance_rough/distance_rough.yy",},
     {"name":"rectangle_check","order":3,"path":"scripts/rectangle_check/rectangle_check.yy",},
@@ -80,6 +80,7 @@
     {"name":"heroWalkLower_s","order":1,"path":"sprites/heroWalkLower_s/heroWalkLower_s.yy",},
     {"name":"heroWalkUpper_s","order":2,"path":"sprites/heroWalkUpper_s/heroWalkUpper_s.yy",},
     {"name":"sword_s","order":3,"path":"sprites/sword_s/sword_s.yy",},
+    {"name":"swordDefence_s","order":11,"path":"sprites/swordDefence_s/swordDefence_s.yy",},
     {"name":"thrownKnife_s","order":2,"path":"sprites/thrownKnife_s/thrownKnife_s.yy",},
     {"name":"standardTileSet_ts","order":1,"path":"tilesets/standardTileSet_ts/standardTileSet_ts.yy",},
   ],

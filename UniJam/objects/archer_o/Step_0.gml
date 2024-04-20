@@ -20,7 +20,7 @@ if dist<viewMaxRange and ( abs(dist-goalDistance) > goalBuffer ){
 } else {
 	
 	if dist<viewMaxRange{
-		attackDl--
+		attackDl-=client_o.time_speed
 		if attackDl<0{
 			attacking=true
 			attackDl = attackDlMax
@@ -64,8 +64,8 @@ if place_meeting(x+hsp,y+vsp,solid_o){
 	vsp = 0
 }
 
-x += hsp
-y += vsp
+x += hsp*client_o.time_speed
+y += vsp*client_o.time_speed
 
 
 //animation
@@ -105,7 +105,7 @@ if !attacking{
 		break;
 	}
 } else {
-	imageUpper+=upperImageSpeed
+	imageUpper+=upperImageSpeed*sqrt(client_o.time_speed)
 	if !knifeThrown and imageUpper>4{
 		knifeThrown=true
 		//create knife
@@ -121,3 +121,5 @@ if !attacking{
 		attackDl = attackDlMax
 	}
 }
+if hitTime>0 {hitTime--; image_blend=c_red}
+else {if image_blend==c_red {image_blend=c_white}}
