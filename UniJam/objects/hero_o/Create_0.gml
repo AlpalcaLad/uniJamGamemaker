@@ -23,3 +23,4 @@ spriteUpper=heroIdleLower_s
 imageUpper=0
 lastIndex=0
 upperImageSpeed=0
+oldTimeSpeed=1

@@ -1,3 +1,10 @@
+if (oldTimeSpeed!=client_o.time_speed){
+	image_speed/=oldTimeSpeed
+	image_speed*=client_o.time_speed
+	upperImageSpeed/=oldTimeSpeed
+	upperImageSpeed*=client_o.time_speed
+}
+
 scabbard_o.image_angle = drawAng
 scabbard_o.image_xscale = image_xscale
 
@@ -20,8 +27,8 @@ if (playerControl){
 }
 
 if jumpBuffer>-1 jumpBuffer--;
-var grvTemp = grv
-vsp += grv
+var grvTemp = grv*client_o.time_speed
+vsp += grvTemp
 
 if onGround and jumpBuffer>0{
 	vsp = -jumpPower
@@ -40,19 +47,19 @@ if onGround flipping=false
 var frict = onGround ? frictGround : frictAir
 hsp/=frict
 
-if place_meeting(x+hsp,y,solid_o){
+if place_meeting(x+hsp*client_o.time_speed,y,solid_o){
 	while !place_meeting(x+sign(hsp),y,solid_o){
 		x += sign(hsp)
 	}
 	hsp = 0
 }
-if place_meeting(x,y+vsp,solid_o){
+if place_meeting(x,y+vsp*client_o.time_speed,solid_o){
 	while !place_meeting(x,y+sign(vsp),solid_o){
 		y += sign(vsp)
 	}
 	vsp = 0
 }
-if place_meeting(x+hsp,y+vsp,solid_o){
+if place_meeting(x+hsp*client_o.time_speed,y+vsp*client_o.time_speed,solid_o){
 	while !place_meeting(x+sign(hsp),y+sign(vsp),solid_o){
 		x += sign(hsp)
 		y += sign(vsp)
@@ -61,8 +68,8 @@ if place_meeting(x+hsp,y+vsp,solid_o){
 	vsp = 0
 }
 
-x += hsp
-y += vsp
+x += hsp*client_o.time_speed
+y += vsp*client_o.time_speed
 
 
 //animation
@@ -70,7 +77,7 @@ scabbard.x=x
 scabbard.y=y
 
 if flipping{
-	drawAng=blend_angles(drawAng,drawAng-40*image_xscale,5);
+	drawAng=blend_angles(drawAng,drawAng-40*image_xscale,5/client_o.time_speed);
 }
 
 if onGround{
@@ -78,10 +85,10 @@ if onGround{
 		image_xscale = sign(hsp)
 		image_speed=2
 		sprite_index = heroWalkLower_s
-		drawAng=blend_angles(drawAng,reformat_angle(-5*image_xscale),5)
+		drawAng=blend_angles(drawAng,reformat_angle(-5*image_xscale),5/client_o.time_speed)
 	} else {
 		sprite_index = heroIdleLower_s
-			drawAng=blend_angles(drawAng,0,5)
+			drawAng=blend_angles(drawAng,0,5/client_o.time_speed)
 }
 } else {
 	sprite_index=heroInAirLower_s

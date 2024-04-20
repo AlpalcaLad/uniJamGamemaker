@@ -11,17 +11,26 @@ var grvTemp = grv
 vsp += grv
 
 target = hero_o
-if (y-target.y)<64 and abs((distance_rough(x,y,target)-goalDistance)>goalBuffer+4){
-	hsp += walkSpd * sign(target.x-x)
+var dist = point_distance(x,y,target.x,target.y)
+if dist<viewMaxRange and ( abs(dist-goalDistance) > goalBuffer ){
+	hsp += walkSpd * sign(dist-goalDistance) * sign(target.x-x)
 	if !place_meeting(x+edgeAvoidDist*sign(hsp),y+5,solid_o) and !place_meeting(x+edgeAvoidDist*sign(hsp),y+22,solid_o){
 		hsp=0
 	}
-}
-if (y-target.y)<64 and abs((distance_rough(x,y,target)-goalDistance)<goalBuffer-4){
-	hsp += walkSpd * sign(x-target.x)
-	if !place_meeting(x+edgeAvoidDist*sign(hsp),y+5,solid_o) and !place_meeting(x+edgeAvoidDist*sign(hsp),y+22,solid_o){
-		hsp=0
+} else {
+	
+	if dist<viewMaxRange{
+		attackDl--
+		if attackDl<0{
+			attacking=true
+			attackDl = attackDlMax
+			spriteUpper=archerThrowUpper_s
+			upperImageSpeed=0.2
+			image_xscale = sign(target.x-x)
+			knifeThrown=false
+		}
 	}
+	
 }
 
 if onGround and jumpBuffer>0{
@@ -80,7 +89,7 @@ if onGround{
 	}
 }
 
-if attacking==0{
+if !attacking{
 	switch sprite_index{
 		case archerWalkLower_s:
 			spriteUpper=archerWalkUpper_s
@@ -94,5 +103,21 @@ if attacking==0{
 			spriteUpper=archerInAirUpper_s
 			imageUpper=image_index
 		break;
+	}
+} else {
+	imageUpper+=upperImageSpeed
+	if !knifeThrown and imageUpper>4{
+		knifeThrown=true
+		//create knife
+		var knife = instance_create_layer(x+sign(image_xscale)*4,y,layer,thrownKnife_o)
+		knife.target=target
+		knife.direction = point_direction(knife.x,knife.y,target.x,target.y)
+		
+	}
+	if imageUpper>5{
+		attacking=false
+		upperImageSpeed=0
+		spriteUpper = archerIdleUpper_s
+		attackDl = attackDlMax
 	}
 }

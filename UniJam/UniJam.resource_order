@@ -42,6 +42,7 @@
   "ResourceOrderSettings":[
     {"name":"client_o","order":1,"path":"objects/client_o/client_o.yy",},
     {"name":"enemy_o","order":5,"path":"objects/enemy_o/enemy_o.yy",},
+    {"name":"thrownKnife_o","order":1,"path":"objects/thrownKnife_o/thrownKnife_o.yy",},
     {"name":"objectMarker_o","order":1,"path":"objects/objectMarker_o/objectMarker_o.yy",},
     {"name":"returningSword_o","order":3,"path":"objects/returningSword_o/returningSword_o.yy",},
     {"name":"scabbard_o","order":1,"path":"objects/scabbard_o/scabbard_o.yy",},
@@ -56,9 +57,9 @@
     {"name":"spawn_in_radius","order":4,"path":"scripts/spawn_in_radius/spawn_in_radius.yy",},
     {"name":"pass_sh","order":1,"path":"shaders/pass_sh/pass_sh.yy",},
     {"name":"archerIdleFull_s","order":3,"path":"sprites/archerIdleFull_s/archerIdleFull_s.yy",},
-    {"name":"archerThrowUpper_s","order":3,"path":"sprites/archerThrowUpper_s/archerThrowUpper_s.yy",},
     {"name":"archerInAirLower_s","order":1,"path":"sprites/archerInAirLower_s/archerInAirLower_s.yy",},
     {"name":"archerInAirUpper_s","order":1,"path":"sprites/archerInAirUpper_s/archerInAirUpper_s.yy",},
+    {"name":"archerThrowUpper_s","order":3,"path":"sprites/archerThrowUpper_s/archerThrowUpper_s.yy",},
     {"name":"archerWalkLower_s","order":2,"path":"sprites/archerWalkLower_s/archerWalkLower_s.yy",},
     {"name":"archerWalkUpper_s","order":2,"path":"sprites/archerWalkUpper_s/archerWalkUpper_s.yy",},
     {"name":"blood_s","order":2,"path":"sprites/blood_s/blood_s.yy",},
