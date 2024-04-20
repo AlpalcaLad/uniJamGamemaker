@@ -107,6 +107,9 @@ if attacking{
 	attackTime--;
 	if attackTime<=0 {
 		attacking=false
+		if object_get_parent(target.object_index)==enemy_o{
+			target.hitTime+=5
+		}
 		for (var i=0; i<50; i++){
 			var multiplier = i/bloodCount/attackTimeMax
 			var blood = instance_create_layer(target.x-hsp*multiplier,target.y-vsp*multiplier,"particles",blood_o)
