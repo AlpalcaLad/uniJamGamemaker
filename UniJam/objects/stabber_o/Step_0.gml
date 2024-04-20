@@ -106,7 +106,7 @@ if !attacking{
 	}
 } else {
 	imageUpper+=upperImageSpeed*sqrt(client_o.time_speed)
-	if !attacked and imageUpper>5 and imageUpper<9{
+	if !attacked and imageUpper>5 and imageUpper<9 and target.hitTime<=0{
 		target.hitTime += 5
 		if target.object_index==hero_o{
 			client_o.freezeTime+=5
@@ -122,4 +122,9 @@ if !attacking{
 	}
 }
 if hitTime>0 {hitTime--; image_blend=c_red}
-else {if image_blend==c_red {image_blend=c_white}}
+else {
+	if image_blend==c_red {
+		image_blend=c_white; 
+		if hp<0 instance_destroy()
+	}
+}

@@ -122,4 +122,9 @@ if !attacking{
 	}
 }
 if hitTime>0 {hitTime--; image_blend=c_red}
-else {if image_blend==c_red {image_blend=c_white}}
+else {
+	if image_blend==c_red {
+		image_blend=c_white; 
+		if hp<0 instance_destroy()
+	}
+}

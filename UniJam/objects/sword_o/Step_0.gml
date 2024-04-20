@@ -77,9 +77,10 @@ if canAttack and mouse_check_button(mb_left){
 		attackSpinSpeed = (newDirection-attackDirection)/attackTimeMax
 	}
 	attacking=true
-	if allowQuickStrike{
+	if allowQuickStrike and object_get_parent(target.object_index)==enemy_o{
 		target.hsp += hsp/8
 		target.vsp += vsp/8
+		target.hp-=1
 	}
 	attackTime=attackTimeMax
 	hsp = ((target.x + attackFloatDist*dcos(newDirection))-x)/attackTimeMax
@@ -109,23 +110,26 @@ if attacking{
 		attacking=false
 		if object_get_parent(target.object_index)==enemy_o{
 			target.hitTime+=5
+			target.hp-=2
 		}
-		for (var i=0; i<50; i++){
-			var multiplier = i/bloodCount/attackTimeMax
-			var blood = instance_create_layer(target.x-hsp*multiplier,target.y-vsp*multiplier,"particles",blood_o)
-			if allowQuickStrike{
-				blood.speed /= 4
-				blood.vspeed += vsp
-				blood.hspeed += hsp
-				blood.speed *= 8
-				blood.image_speed = 2+random_range(0,1)
-				blood.x = target.x
-				blood.y = target.y
-			} else {
-				blood.vspeed += vsp/30
-				blood.hspeed += hsp/30
-				blood.speed *= 2
-				blood.image_speed=2
+		if object_get_parent(target.object_index)!=enemy_o or target.hp>0{
+			for (var i=0; i<50; i++){
+				var multiplier = i/bloodCount/attackTimeMax
+				var blood = instance_create_layer(target.x-hsp*multiplier,target.y-vsp*multiplier,"particles",blood_o)
+				if allowQuickStrike{
+					blood.speed /= 4
+					blood.vspeed += vsp
+					blood.hspeed += hsp
+					blood.speed *= 8
+					blood.image_speed = 2+random_range(0,1)
+					blood.x = target.x
+					blood.y = target.y
+				} else {
+					blood.vspeed += vsp/30
+					blood.hspeed += hsp/30
+					blood.speed *= 2
+					blood.image_speed=2
+				}
 			}
 		}
 	}

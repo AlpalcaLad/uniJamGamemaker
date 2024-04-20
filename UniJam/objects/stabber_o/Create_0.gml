@@ -1,6 +1,6 @@
 hsp=0;
 vsp=0;
-walkSpd = 0.25;
+walkSpd = 0.25+random_range(-0.025,0.025);
 jumpPower = 3
 grv = 0.2
 jumpBuffer = 0
