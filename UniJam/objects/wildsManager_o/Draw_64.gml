@@ -1,0 +1,5 @@
+draw_set_font(pixel)
+draw_set_color(c_black)
+draw_roundrect(w-11.25*string_width(drawText),15,w-5*string_width(drawText),15+4*string_height(drawText),false)
+draw_set_color(c_white)
+draw_text_transformed(w-11*string_width(drawText),15,drawText,4,4,0)

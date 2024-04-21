@@ -1,0 +1,13 @@
+{
+  "$GMScript":"",
+  "%Name":"choose_weight",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"choose_weight",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/Scripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

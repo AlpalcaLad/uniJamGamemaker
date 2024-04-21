@@ -24,3 +24,4 @@ attackDlMax = 90
 viewMaxRange = 200
 attacked=false
 hitTime=0
+hpMax=hp

@@ -12,8 +12,9 @@ vsp += grv
 
 target = hero_o
 var dist = point_distance(x,y,target.x,target.y)
-if dist<viewMaxRange and ( abs(dist-goalDistance) > goalBuffer ){
+if (dist<viewMaxRange or hp!=hpMax) and ( abs(dist-goalDistance) > goalBuffer ){
 	hsp += walkSpd * sign(dist-goalDistance) * sign(target.x-x)
+	if onGround and place_meeting(x+hsp*5,y,solid_o) and !place_meeting(x+hsp*5,y-16,solid_o) vsp=-jumpPower
 	if !place_meeting(x+edgeAvoidDist*sign(hsp),y+5,solid_o) and !place_meeting(x+edgeAvoidDist*sign(hsp),y+22,solid_o){
 		hsp=0
 	}
@@ -49,19 +50,23 @@ if place_meeting(x+hsp,y,solid_o){
 	}
 	hsp = 0
 }
-if place_meeting(x,y+vsp,solid_o){
-	while !place_meeting(x,y+sign(vsp),solid_o){
-		y += sign(vsp)
+
+if onGround and vsp>0 vsp=0
+else {
+	if place_meeting(x,y+vsp,solid_o){
+		while !place_meeting(x,y+sign(vsp),solid_o){
+			y += sign(vsp)
+		}
+		vsp = 0
 	}
-	vsp = 0
-}
-if place_meeting(x+hsp,y+vsp,solid_o){
-	while !place_meeting(x+sign(hsp),y+sign(vsp),solid_o){
-		x += sign(hsp)
-		y += sign(vsp)
+	if place_meeting(x+hsp,y+vsp,solid_o){
+		while !place_meeting(x+sign(hsp),y+sign(vsp),solid_o){
+			x += sign(hsp)
+			y += sign(vsp)
+		}
+		hsp = 0
+		vsp = 0
 	}
-	hsp = 0
-	vsp = 0
 }
 
 x += hsp*client_o.time_speed

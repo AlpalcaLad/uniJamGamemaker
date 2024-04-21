@@ -19,6 +19,33 @@ if playerControl{
 	var u=false;	
 }
 
+if !canDraw{
+	if instance_exists(sword_o){
+		with sword_o{
+			with instance_create_layer(x,y,layer,returningSword_o){
+				direction=other.direction
+				image_angle=direction
+				floatLerpAm = other.floatLerpAm
+				hero=other.hero
+				swordNum=1
+			}
+			instance_destroy()	
+		}
+	}
+	if instance_exists(swordDefence_o){
+		with swordDefence_o{
+			with instance_create_layer(x,y,layer,returningSword_o){
+				direction=other.direction
+				image_angle=direction
+				floatLerpAm = other.floatLerpAm
+				hero=other.hero
+				swordNum=2
+			}
+			instance_destroy()	
+		}
+	}
+}
+
 if (playerControl){
 	hsp += (r-l)*walkSpd;
 	if u jumpBuffer=5
@@ -165,14 +192,14 @@ if drawing==0{
 	}
 } else {
 	if drawing==1{
-		if !instance_exists(sword_o) imageUpper+=upperImageSpeed*sqrt(client_o.time_speed)
+		if !instance_exists(sword_o) imageUpper+=upperImageSpeed*sqrt(client_o.time_speed)*client_o.playerDrawMult
 		else drawing=false
 		if imageUpper >= sprite_get_number(spriteUpper){
 			imageUpper-=sprite_get_number(spriteUpper)
 		}
 	} 
 	if drawing==2{
-		if !instance_exists(swordDefence_o) imageUpper+=upperImageSpeed*sqrt(client_o.time_speed)
+		if !instance_exists(swordDefence_o) imageUpper+=upperImageSpeed*sqrt(client_o.time_speed)*client_o.playerDrawMult
 		else drawing=false
 		if imageUpper >= sprite_get_number(spriteUpper){
 			imageUpper-=sprite_get_number(spriteUpper)
@@ -181,3 +208,8 @@ if drawing==0{
 }
 if hitTime>0 {hitTime--; image_blend=c_red}
 else {if image_blend==c_red {image_blend=c_white}}
+
+if place_meeting(x,y,solid_o){
+	instance_create_layer(x,y,"meta",genDialogueScript_o).functionName=physics_dialogue
+	while place_meeting(x,y,solid_o) y--
+}

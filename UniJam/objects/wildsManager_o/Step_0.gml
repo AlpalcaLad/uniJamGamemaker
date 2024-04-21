@@ -1,0 +1,1 @@
+drawText="Wave: "+string(wave+1) + ", Score: "+string(wildsScore)

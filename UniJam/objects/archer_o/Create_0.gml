@@ -22,3 +22,4 @@ attackDlMax = 60
 viewMaxRange = 200
 knifeThrown=false
 hitTime=0
+hpMax=hp

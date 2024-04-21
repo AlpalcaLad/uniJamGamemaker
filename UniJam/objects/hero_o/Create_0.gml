@@ -28,3 +28,4 @@ hitTime=0
 distanceCovered=0
 footstepDistance=32
 vspMax=10
+hp=3

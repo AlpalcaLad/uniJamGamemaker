@@ -6,4 +6,15 @@ if freezeTime>0{
 	time_speed_targ=freezeGameSpeed
 } else time_speed_targ=1
 
-var lay = layer_get_id("backTiles")
+//var lay = layer_get_id("backTiles")
+
+if (endRoom!=room and !roomChanging){
+	/*
+	roomChanging=true
+	fadeObj=instance_create_layer(x,y,"fade",fade_o)
+	fadeObj.image_speed=-3
+	fadeObj.image_index=fadeObj.image_number-1
+	*/
+	roomChanging=true
+	room_goto(TheWilds)
+}

@@ -37,54 +37,23 @@ yTo = clamp(yTo,288*zoom/2,room_height-288*zoom/2)
 x = clamp(x,525*zoom/2,room_width-525*zoom/2)
 y = clamp(y,288*zoom/2,room_height-288*zoom/2)
 
-hsp = (xTo - x )/25
-vsp = (yTo - y )/25
-/* THIS CAN HANDLE WALLS THAT STOP THE CAMERA MOVING
-if client_o.blockCamera{
-	with cameraBlock_o{
-		if distance_rough(x,y,other)<400{
-			with other{
-				/
-				if place_meeting(x+hsp,y,other) and ((rightPlayer and xTo>other.x+sign(x-other.x)*abs(bbox_right-bbox_left)/2) or (!rightPlayer and xTo<other.x+sign(x-other.x)*abs(bbox_right-bbox_left)/2)){
-					var tempxTo=other.x-sign(x-other.x)*abs(bbox_right-bbox_left)/2
-					hsp = (tempxTo - x )/25
-				}
-				/
-				if place_meeting(x,y+vsp,other) and ((other.abovePlayer and yTo>other.y+sign(y-other.y)*abs(bbox_bottom-bbox_top)/2) or (!other.abovePlayer and yTo<other.y+sign(y-other.y)*abs(bbox_bottom-bbox_top)/2)){
-					var tempyTo=other.y+sign(y-other.y)*abs(bbox_bottom-bbox_top)/2
-					vsp = (tempyTo - y )/25
-				}
-			
-			}
-		}
+with cameraBlock_o{
+	if xDir==1{
+		if other.xTo>x other.xTo=x
 	}
-	with cameraBlockH_o{
-		if distance_rough(x,y,other)<400{
-			with other{
-			
-				if place_meeting(x+hsp,y,other) and ( (!other.rightPlayer and xTo<other.x+abs(bbox_right-bbox_left)/2)){
-					var tempxTo=other.x-(other.rightPlayer*2-1)*abs(bbox_right-bbox_left)/2
-					hsp = (tempxTo - x )/25
-				}
-				else{
-					if place_meeting(x+hsp,y,other) and ( (other.rightPlayer and xTo>other.x-abs(bbox_right-bbox_left)/2)){
-						var tempxTo=other.x-(other.rightPlayer*2-1)*abs(bbox_right-bbox_left)/2
-						hsp = (tempxTo - x )/25
-					}
-				}
-			
-				/
-				if place_meeting(x,y+vsp,other) and ((abovePlayer and yTo<other.y+sign(y-other.y)*abs(bbox_bottom-bbox_top)/2) or (!abovePlayer and yTo>other.y+sign(y-other.y)*abs(bbox_bottom-bbox_top)/2)){
-					var tempyTo=other.y+sign(y-other.y)*abs(bbox_bottom-bbox_top)/2
-					vsp = (tempyTo - y )/25
-				}
-				/
-			}
-		}
+	if xDir==-1{
+		if other.xTo<x other.xTo=x
+	}
+	if yDir==1{
+		if other.yTo>y other.yTo=y
+	}
+	if yDir==-1{
+		if other.yTo<y other.yTo=y
 	}
 }
-*/
 
+hsp = (xTo - x )/25
+vsp = (yTo - y )/25
 
 //moving the camera
 x += (hsp)

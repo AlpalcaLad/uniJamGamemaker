@@ -1,0 +1,1 @@
+fillPerc=image_index/image_number

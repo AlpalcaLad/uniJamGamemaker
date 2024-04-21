@@ -8,7 +8,7 @@ if !attacking{
 	if freeRoam target = instance_nearest(mouse_x,mouse_y,target_o)
 	else target = instance_nearest(hero.x,hero.y,target_o)
 }
-if point_distance(mouse_x,mouse_y,target.x,target.y)>maxTargetRange and !attacking and freeRoam{
+if target != noone and point_distance(mouse_x,mouse_y,target.x,target.y)>maxTargetRange and !attacking and freeRoam{
 	target=noone;
 }
 /*else {
@@ -67,7 +67,7 @@ if !mouse_check_button(mb_right){
 	}
 }
 
-if canAttack and mouse_check_button(mb_left){
+if canAttack and mouse_check_button(mb_left) and target!=noone{
 	canAttack=false;
 	attackDl=attackDlMax;
 	var newDirection = reformat_angle(180+attackDirection)
@@ -77,10 +77,12 @@ if canAttack and mouse_check_button(mb_left){
 		attackSpinSpeed = (newDirection-attackDirection)/attackTimeMax
 	}
 	attacking=true
+	audio_sound_gain(swordHit_snd,0.25,0)
 	if allowQuickStrike and object_get_parent(target.object_index)==enemy_o{
 		target.hsp += hsp/8
 		target.vsp += vsp/8
-		target.hp-=1
+		target.hp-=1*client_o.playerDamage
+		audio_sound_gain(swordHit_snd,0.75,0)
 	}
 	attackTime=attackTimeMax
 	hsp = ((target.x + attackFloatDist*dcos(newDirection))-x)/attackTimeMax
@@ -99,7 +101,7 @@ if existTime<30 and point_distance(0,0,vsp,hsp)>10{
 	}
 }
 
-if attacking{
+if attacking and target!=noone{
 	/*
 	*/
 	attackDirection += attackSpinSpeed
@@ -110,7 +112,7 @@ if attacking{
 		attacking=false
 		if object_get_parent(target.object_index)==enemy_o{
 			target.hitTime+=5
-			target.hp-=2
+			target.hp-=2*client_o.playerDamage
 		}
 		if object_get_parent(target.object_index)!=enemy_o or target.hp>0{
 			audio_play_sound(swordHit_snd,1,false,0.5,0,random_range(0.8,1.2))
