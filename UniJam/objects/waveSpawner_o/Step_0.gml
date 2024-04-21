@@ -1,11 +1,7 @@
 if createDl>-1 createDl--
 if active and createDl<0 and array_length(created)<maxEnemies and point_distance(x,y,hero_o.x,hero_o.y)<500{
 	createDl=spawnDelay
-	var newCreature = spawn_in_area(x,y,monster,48,6)
-	if newCreature!=noone{
-		newCreature.spawnPoof=true
-		array_push(created,newCreature)
-	}
+	wave_spawn(monster)
 }
 /* needs reimplementation
 if position_meeting(x,y-16,hero_o) and active{

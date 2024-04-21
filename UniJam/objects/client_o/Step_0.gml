@@ -16,5 +16,5 @@ if (endRoom!=room and !roomChanging){
 	fadeObj.image_index=fadeObj.image_number-1
 	*/
 	roomChanging=true
-	room_goto(TheWilds)
+	room_goto(endRoom)
 }

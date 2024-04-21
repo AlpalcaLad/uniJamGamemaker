@@ -116,6 +116,8 @@ if !attacking{
 		if target.object_index==hero_o{
 			client_o.freezeTime+=5
 			camera_o.screenShake+=10
+			target.hitTime+=10
+			target.hp--;
 			attacked=true
 			audio_play_sound(swordHit_snd,1,false,0.25,0,random_range(0.8,1.2))
 		}

@@ -213,3 +213,5 @@ if place_meeting(x,y,solid_o){
 	instance_create_layer(x,y,"meta",genDialogueScript_o).functionName=physics_dialogue
 	while place_meeting(x,y,solid_o) y--
 }
+
+if hp<=0 client_o.endRoom=Lobby
