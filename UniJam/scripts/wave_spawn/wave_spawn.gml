@@ -5,4 +5,5 @@ function wave_spawn(monster){
 		newCreature.spawnPoof=true
 		array_push(created,newCreature)
 	}
+	return newCreature
 }
