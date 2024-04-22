@@ -16,3 +16,21 @@ function physics_dialogue(){
 	}
 
 }
+
+function honour_dialogue(){
+	if currentIndex == 1{ //This is the index the code is currently at
+		icon=heroIdleUpper_s
+		getInput = 0
+		optionText = [  ]
+		optionGoals = [2]
+		drawText = [ "I should kill enemies closer","Ghosts might spawn otherwise." ]
+	}
+	if currentIndex == 2{ //This is where dialogue ends
+		getInput=false
+		optionText = []
+		optionGoals = []
+		drawText = []
+		instance_destroy()
+	}
+
+}

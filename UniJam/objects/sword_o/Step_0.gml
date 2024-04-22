@@ -3,12 +3,19 @@ if target==noone and mouse_check_button(mb_left) and attackDl<0{
 	allowQuickStrike=true
 }
 
+var mouseDirec=point_direction(hero.x,hero.y,mouse_x,mouse_y)
+var maxX=hero.x+abs(lengthdir_x(maxPlayerDist,mouseDirec))
+var minX=hero.x-abs(lengthdir_x(maxPlayerDist,mouseDirec))
+var maxY=hero.y+abs(lengthdir_y(maxPlayerDist,mouseDirec))
+var minY=hero.y-abs(lengthdir_y(maxPlayerDist,mouseDirec))
+var mousex = clamp(mouse_x,minX,maxX)
+var mousey = clamp(mouse_y,minY,maxY)
 
 if !attacking{
-	if freeRoam target = instance_nearest(mouse_x,mouse_y,target_o)
+	if freeRoam target = instance_nearest(mousex,mousey,target_o)
 	else target = instance_nearest(hero.x,hero.y,target_o)
 }
-if target != noone and point_distance(mouse_x,mouse_y,target.x,target.y)>maxTargetRange and !attacking and freeRoam{
+if target != noone and point_distance(mousex,mousey,target.x,target.y)>maxTargetRange and !attacking and freeRoam{
 	target=noone;
 }
 /*else {
@@ -20,6 +27,13 @@ if target != noone and point_distance(mouse_x,mouse_y,target.x,target.y)>maxTarg
 if spin{
 	naturalAngle=reformat_angle(naturalAngle+15)
 	if naturalAngle==spinStart spin=false
+	/*
+	if place_meeting(x,y,stabber_o){
+		with instance_place(x,y,stabber_o){
+			hsp += sign(x-other.x)
+		}
+	}
+	*/
 }
 if mouse_check_button(mb_middle) and !spin{ //temp
 	spin=true
@@ -51,25 +65,25 @@ if attackDl>-10 attackDl-=client_o.time_speed
 if !mouse_check_button(mb_right){
 	if target!=noone and !spin{
 		if !attacking{
-			if attackDl <= -10 attackDirection = 180-point_direction(mouse_x,mouse_y,target.x,target.y)
+			if attackDl <= -10 attackDirection = 180-point_direction(mousex,mousey,target.x,target.y)
 			xTo = target.x + attackFloatDist*dcos(attackDirection);
 			yTo = target.y + attackFloatDist*dsin(attackDirection);
-			direction = blend_angles(direction,reformat_angle(point_direction(target.x,target.y,mouse_x,mouse_y)-90),angleLerpAm/client_o.time_speed,true);
+			direction = blend_angles(direction,reformat_angle(point_direction(target.x,target.y,mousex,mousey)-90),angleLerpAm/client_o.time_speed,true);
 			image_angle=direction;
 			if attackDl<0 canAttack=true;
 		}
 	} else {
 		direction = blend_angles(direction,naturalAngle,angleLerpAm/client_o.time_speed,true);
 		image_angle=direction
-		xTo = mouse_x
-		yTo = mouse_y
+		xTo = mousex
+		yTo = mousey
 		canAttack=false;
 	}
 }
 
 if canAttack and mouse_check_button(mb_left) and target!=noone{
 	canAttack=false;
-	attackDl=attackDlMax;
+	attackDl=attackDlMax*client_o.swordSpeedMult;
 	var newDirection = reformat_angle(180+attackDirection)
 	if attackDirection > newDirection{
 		attackSpinSpeed = (newDirection-attackDirection+360)/attackTimeMax

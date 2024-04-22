@@ -8,13 +8,15 @@ if freezeTime>0{
 
 //var lay = layer_get_id("backTiles")
 
-if (endRoom!=room and !roomChanging){
+if (endRoom!=room and !instance_exists(transitionEffect_o)){
 	/*
 	roomChanging=true
 	fadeObj=instance_create_layer(x,y,"fade",fade_o)
 	fadeObj.image_speed=-3
 	fadeObj.image_index=fadeObj.image_number-1
 	*/
-	roomChanging=true
-	room_goto(endRoom)
+	var eff = instance_create_layer(x,y,layer,transitionEffect_o).roomTo=roomTarget
 }
+
+//w=window_get_width()
+//h=window_get_height()

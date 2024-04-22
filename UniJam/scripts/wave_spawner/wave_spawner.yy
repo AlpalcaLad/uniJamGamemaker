@@ -1,0 +1,13 @@
+{
+  "$GMScript":"",
+  "%Name":"wave_spawner",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"wave_spawner",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/Scripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

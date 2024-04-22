@@ -1,0 +1,1 @@
+draw_sprite_ext(sprite_index,image_index,10+48*heartNum,50,2,2,0,c_white,1)

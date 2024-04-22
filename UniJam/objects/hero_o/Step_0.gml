@@ -94,9 +94,25 @@ if place_meeting(x+hsp*client_o.time_speed,y+vsp*client_o.time_speed,solid_o){
 	vsp = 0
 }
 
-x += hsp*client_o.time_speed
 y += vsp*client_o.time_speed
+if place_meeting(x,y,solid_o) {
+	if vsp==0{
+		instance_create_layer(x,y,"meta",genDialogueScript_o).functionName=physics_dialogue
+		vsp=1
+	}
+	while place_meeting(x,y,solid_o) {y-=sign(vsp)}
+	vsp=0
+}
 
+x += hsp*client_o.time_speed
+if place_meeting(x,y,solid_o) {
+	if hsp==0{
+		instance_create_layer(x,y,"meta",genDialogueScript_o).functionName=physics_dialogue
+		hsp=1
+	}
+	while place_meeting(x,y,solid_o) {x-=sign(hsp)}
+	hsp=0
+}
 
 //animation
 scabbard.x=x
@@ -209,9 +225,19 @@ if drawing==0{
 if hitTime>0 {hitTime--; image_blend=c_red}
 else {if image_blend==c_red {image_blend=c_white}}
 
-if place_meeting(x,y,solid_o){
-	instance_create_layer(x,y,"meta",genDialogueScript_o).functionName=physics_dialogue
-	while place_meeting(x,y,solid_o) y--
+if hp!=hpLast{
+	with heart_o{
+		if image_speed!=0 other.hp = other.hpLast
+		else if heartNum=other.hpLast image_speed=1.5
+	}
+	hpLast=hp
+}
+if hp<=0{
+	client_o.endRoom = Lobby
+	client_o.roomTarget= Lobby
 }
 
-if hp<=0 client_o.endRoom=Lobby
+if !honourWarned and honour<8{
+	instance_create_layer(x,y,"meta",genDialogueScript_o).functionName=honour_dialogue
+	honourWarned=true
+}

@@ -1,1 +1,2 @@
-room_goto(endRoom)
+client_o.endRoom=TheWilds
+client_o.roomTarget=TheWilds

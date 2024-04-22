@@ -15,6 +15,9 @@ if spin{
 //	spinStart=naturalAngle
 //}
 
+//var mouseDirec=point_direction(hero.x,hero.y,mouse_x,mouse_y)
+//var mousex = clamp(mouse_x,hero.x+lengthdir_x(maxPlayerDist,mouseDirec),hero.x-lengthdir_x(maxPlayerDist,mouseDirec))
+//var mousey = clamp(mouse_y,hero.y+lengthdir_y(maxPlayerDist,mouseDirec),hero.y-lengthdir_y(maxPlayerDist,mouseDirec))
 
 if !spin{
 	canAttack=false

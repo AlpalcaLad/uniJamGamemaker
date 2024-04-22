@@ -1,7 +1,7 @@
 hero=noone; //hero character owned by
 target=noone; //target enemy
 floatLerpAm = 5; //how quickly sword lerps to mouse (if not targetting)
-angleLerpAm = 10;
+angleLerpAm = 5;
 attackDirection=45; //direction to next attack enemy from
 naturalAngle = 45
 attackFloatDist=16;
@@ -13,6 +13,7 @@ attacking=false;
 attackTime=0
 attackTimeMax=5
 attackSpinSpeed=0;
+maxPlayerDist=128
 xTo=x;
 yTo=y;
 hsp=0;

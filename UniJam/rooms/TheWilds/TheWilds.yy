@@ -11,6 +11,8 @@
     {"name":"inst_43D4314B_1","path":"rooms/TheWilds/TheWilds.yy",},
     {"name":"inst_75600AC","path":"rooms/TheWilds/TheWilds.yy",},
     {"name":"inst_DC0D4D","path":"rooms/TheWilds/TheWilds.yy",},
+    {"name":"inst_7FC5D868","path":"rooms/TheWilds/TheWilds.yy",},
+    {"name":"inst_17D3E7E7","path":"rooms/TheWilds/TheWilds.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -33,6 +35,8 @@
           ],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":1012.0,"y":150.0,},
         {"$GMRInstance":"","%Name":"inst_43D4314B_1","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_43D4314B_1","objectId":{"name":"client_o","path":"objects/client_o/client_o.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":491.0,"y":292.0,},
         {"$GMRInstance":"","%Name":"inst_DC0D4D","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_DC0D4D","objectId":{"name":"wildsManager_o","path":"objects/wildsManager_o/wildsManager_o.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":1001.0,"y":109.0,},
+        {"$GMRInstance":"","%Name":"inst_7FC5D868","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_7FC5D868","objectId":{"name":"honourBar_o","path":"objects/honourBar_o/honourBar_o.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":1056.0,"y":96.0,},
+        {"$GMRInstance":"","%Name":"inst_17D3E7E7","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_17D3E7E7","objectId":{"name":"transitionEffect_o","path":"objects/transitionEffect_o/transitionEffect_o.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":1056.0,"y":128.0,},
       ],"layers":[],"name":"player","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRInstanceLayer":"","%Name":"scabbard","depth":800,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[],"layers":[],"name":"scabbard","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRTileLayer":"","%Name":"decorTiles","depth":900,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"decorTiles","properties":[],"resourceType":"GMRTileLayer","resourceVersion":"2.0","tiles":{"SerialiseHeight":0,"SerialiseWidth":0,"TileSerialiseData":[],},"tilesetId":null,"userdefinedDepth":false,"visible":true,"x":0,"y":0,},

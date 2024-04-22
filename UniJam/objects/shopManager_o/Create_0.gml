@@ -1,0 +1,3 @@
+scrollAllowed=false
+scrollOffset=0
+clickAllowed=false

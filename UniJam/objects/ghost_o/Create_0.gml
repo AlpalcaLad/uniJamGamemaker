@@ -1,0 +1,9 @@
+hsp=0;
+vsp=0;
+walkSpd = 0.25+random_range(-0.05,0.05);
+drawAng=0
+hp=20
+attackDl=0
+attackDlMax=60
+hitTime=0
+hpMax=hp

@@ -29,3 +29,7 @@ distanceCovered=0
 footstepDistance=32
 vspMax=10
 hp=3
+honour=20
+honourInit=honour
+honourWarned=false
+hpLast=hp

@@ -9,6 +9,7 @@ maxTargetRange = 32;
 canAttack=false;
 attackDl=0;
 attackDlMax=20;
+maxPlayerDist=64
 attacking=false;
 attackTime=0
 attackTimeMax=5

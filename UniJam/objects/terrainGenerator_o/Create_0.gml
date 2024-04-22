@@ -63,7 +63,7 @@ if islandType=="roof"{
 	var roofheight=5
 	var hasSpawner=(irandom_range(0,10)>5)
 	for (var i=1; i<surface_point_num-1; i++){
-		instance_create_layer(surface_points[i][0]+tile_size/2,max_y-tile_size*roofheight+tile_size/2,"walls",solidWall_o)
+		instance_create_layer(surface_points[i][0]+tile_size/2,max_y-tile_size*roofheight+tile_size/2,"walls",solidRoof_o)
 		tilemap_set_at_pixel(building_id,3,surface_points[i][0],max_y-tile_size*roofheight)
 		if i>1 and i<surface_point_num-2{
 			for (var j=1; j<((surface_points[i][1])-(max_y-roofheight*tile_size))/16; j++){
@@ -78,7 +78,7 @@ if islandType=="doubleroof"{
 	var roofheight=5
 	var secondroofheight=8
 	for (var i=1; i<surface_point_num-1; i++){
-		instance_create_layer(surface_points[i][0]+tile_size/2,max_y-tile_size*roofheight+tile_size/2,"walls",solidWall_o)
+		instance_create_layer(surface_points[i][0]+tile_size/2,max_y-tile_size*roofheight+tile_size/2,"walls",solidRoof_o)
 		tilemap_set_at_pixel(building_id,3,surface_points[i][0],max_y-tile_size*roofheight)
 		
 		if i>1 and i<surface_point_num-2{
@@ -88,7 +88,7 @@ if islandType=="doubleroof"{
 				}
 			}
 			
-			instance_create_layer(surface_points[i][0]+tile_size/2,max_y-tile_size*secondroofheight+tile_size/2,"walls",solidWall_o)
+			instance_create_layer(surface_points[i][0]+tile_size/2,max_y-tile_size*secondroofheight+tile_size/2,"walls",solidRoof_o)
 			tilemap_set_at_pixel(building_id,3,surface_points[i][0],max_y-tile_size*secondroofheight)
 			if i>2 and i<surface_point_num-3{
 				for (var j=1; j< secondroofheight-roofheight; j++){
