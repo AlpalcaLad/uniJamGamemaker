@@ -7,6 +7,7 @@ h = display_get_gui_height()
 
 functionName = physics_dialogue
 
+madeBy=noone
 currentIndex = 1 //current dialogue position
 changeDl = 20 //delay between going to next stage
 drawText = [""]

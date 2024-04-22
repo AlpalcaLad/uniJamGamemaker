@@ -16,3 +16,4 @@ if fillPerc>2 {
 	//show_debug_message(room_get_name(client_o.roomTarget))
 	room_goto(client_o.roomTarget)
 }
+

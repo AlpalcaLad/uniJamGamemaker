@@ -1,1 +1,1 @@
-game_end()
+pause=1-pause

@@ -1,7 +1,7 @@
 var c=client_o.w/2
 var mousex = (window_mouse_get_x()/window_get_width())*client_o.w
 var mousey = (window_mouse_get_y()/window_get_height())*client_o.h
-if clickAllowed and mouse_check_button(mb_left){
+if !client_o.pause and clickAllowed and mouse_check_button(mb_left){
 	for (var i=0; i<array_length(client_o.shopButtons); i++){
 		if client_o.shopButtons[i][3]!="MAXED" and client_o.money>=client_o.shopButtons[i][3] and rectangle_check(mousex,mousey,c-string_width(client_o.shopButtons[i][0])*2-15,50+100*(i),c+string_width(client_o.shopButtons[i][0])*2+15,100*i+110){
 			client_o.money-=client_o.shopButtons[i][3]

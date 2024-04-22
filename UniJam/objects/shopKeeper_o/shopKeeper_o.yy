@@ -6,8 +6,8 @@
   "name":"shopKeeper_o",
   "overriddenProperties":[],
   "parent":{
-    "name":"npcs",
-    "path":"folders/Objects/npcs.yy",
+    "name":"particles",
+    "path":"folders/Objects/particles.yy",
   },
   "parentObjectId":null,
   "persistent":false,
