@@ -25,14 +25,17 @@ if pause and clickAllowed and mouse_check_button(mb_left){
 	for (var i=0; i<array_length(pauseButtons); i++){
 		if rectangle_check(mousex,mousey,c-string_width(pauseButtons[i])*2-15,50+100*(i),c+string_width(pauseButtons[i])*2+15,100*i+110){
 			switch i{
-				case 0:
+				case 2:
+					pause=false
+				break;
+				case 3:
 					music=1-music
 				break;
-				case 1:
+				case 4:
 					endRoom=Lobby
 					roomTarget=Lobby
 				break;
-				case 2:
+				case 5:
 					game_end()
 				break;
 			}

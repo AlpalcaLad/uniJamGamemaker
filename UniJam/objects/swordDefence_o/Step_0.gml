@@ -57,8 +57,8 @@ if existTime<15{
 	hsp = (xTo-x)/floatLerpAm * (existTime/15);
 	vsp = (yTo-y)/floatLerpAm * (existTime/15);
 } else {
-	hsp = (xTo-x)/floatLerpAm;
-	vsp = (yTo-y)/floatLerpAm;
+	hsp = (xTo-x)/floatLerpAm+hero.hsp;
+	vsp = (yTo-y)/floatLerpAm+hero.vsp;
 }
 
 x += hsp;

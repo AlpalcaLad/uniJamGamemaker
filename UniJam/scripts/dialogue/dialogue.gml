@@ -90,7 +90,7 @@ function opening_dialogue(){
 		getInput = 0
 		optionText = [  ]
 		optionGoals = [5]
-		drawText = [ "global warming etc","you get it" ]
+		drawText = [ "evil mutations and magic etc","you get it" ]
 	}
 	if currentIndex == 13{ //This is the index the code is currently at
 		getInput = 0
@@ -150,6 +150,7 @@ function spider_dialogue(){
 	}
 	if currentIndex == 6{ //This is the index the code is currently at
 		getInput = 1
+		spider_o.spoken=true
 		optionText = [ "secret","defend","nothing","attack" ]
 		optionGoals = [ 13,11,9,7 ]
 		drawText = [ "What do you want to learn" ]
@@ -203,7 +204,18 @@ function spider_dialogue(){
 		optionGoals = [6]
 		drawText = [ "with middle mouse button..." ]
 	}
-	
+	if currentIndex == 15{ //This is the index the code is currently at
+		getInput = 0
+		optionText = [  ]
+		optionGoals = [6]
+		drawText = [ "That was a shocking performance","Have you learnt nothing?!"]
+	}
+	if currentIndex == 16{ //This is the index the code is currently at
+		getInput = 0
+		optionText = [  ]
+		optionGoals = [15]
+		drawText = [ "" ]
+	}
 }
 
 function honour_dialogue(){

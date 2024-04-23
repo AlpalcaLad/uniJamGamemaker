@@ -16,6 +16,7 @@ blockCamera=true
 pause=false
 music=true
 clickAllowed=false
+deaths=0
 
 //upgrades
 playerHealth=3
@@ -28,6 +29,7 @@ endRoom=room
 roomChanging=false
 fadeObj=noone
 roomTarget=room
+lastRoom=room
 
 money=0
 shopButtons = [ //string,variablename,increase,cost,costIncrease,maxCost
@@ -39,6 +41,9 @@ shopButtons = [ //string,variablename,increase,cost,costIncrease,maxCost
 ]
 
 pauseButtons = [
+	"",
+	"",
+	"Resume Game",
 	"Toggle Music",
 	"Back to Lobby",
 	"Exit Game"

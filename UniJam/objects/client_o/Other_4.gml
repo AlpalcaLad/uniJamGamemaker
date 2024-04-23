@@ -17,3 +17,10 @@ if instance_exists(hero_o){
 
 roomChanging=false
 endRoom=room
+
+if lastRoom==Shop{
+	//669 180
+	hero_o.x=669
+	hero_o.y=180
+}
+lastRoom=room

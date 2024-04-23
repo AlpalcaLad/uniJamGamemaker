@@ -17,7 +17,7 @@ var dist = point_distance(x,y,target.x,target.y)
 if (dist<viewMaxRange or hp!=hpMax) and ( abs(dist-goalDistance) > goalBuffer ){
 	hsp += walkSpd * sign(dist-goalDistance) * sign(target.x-x)
 	if onGround and place_meeting(x+hsp*2,y,solid_o) and !place_meeting(x+hsp*2,y-16,solid_o) vsp=-jumpPower
-	if !place_meeting(x+edgeAvoidDist*sign(hsp),y+5,solid_o) and !place_meeting(x+edgeAvoidDist*sign(hsp),y+22,solid_o){
+	if !place_meeting(x+edgeAvoidDist*sign(hsp),y+5,solid_o) and !place_meeting(x+edgeAvoidDist*sign(hsp),y+22,solid_o) and !place_meeting(x+edgeAvoidDist*sign(hsp),y+38,solid_o){
 		hsp=0
 	}
 } else {

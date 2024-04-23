@@ -4,7 +4,8 @@ if place_meeting(x,y,hero_o){
 		var dia = instance_create_layer(x,y,"meta",genDialogueScript_o)
 		dia.functionName=spider_dialogue
 		dia.madeBy=id
-		if spoken genDialogueScript_o.currentIndex=6
+		if spoken and client_o.deaths==0 genDialogueScript_o.currentIndex=5
+		if client_o.deaths>0 genDialogueScript_o.currentIndex=16
 	}
 	if drawAble and indic.image_index > 4{
 		indic.image_speed = -2;

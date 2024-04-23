@@ -1,4 +1,5 @@
 islandType=choose_weight(["roof",4,"noroof",8,"doubleroof",6])
+if (forceSpawnerGen and (instance_number(object_index)%2==0)) islandType="noroof"
 
 x=floor(x/16)*16
 y=floor(y/16)*16
@@ -51,7 +52,7 @@ for (var i=0; i<surface_point_num; i++){
 	tilemap_set_at_pixel(tilemap_id,surfaceTileIndex,surface_points[i][0],new_y)
 	instance_create_layer(surface_points[i][0]+tile_size/2,new_y+tile_size/2,"walls",solidWall_o)
 	if (forceSpawnerGen and (instance_number(object_index)%2==0)) and surface_points[i][0]<room_width and i==round((surface_point_num-1)/2){
-		instance_create_layer(surface_points[i][0]+tile_size/2,min(new_y,last_y)-tile_size/2,"enemies",waveSpawner_o)
+		instance_create_layer(surface_points[i][0]+tile_size/2,max(new_y,last_y)-tile_size/2,"enemies",waveSpawner_o)
 	}
 	last_y=new_y
 	if max_y<last_y max_y=last_y

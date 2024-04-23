@@ -19,7 +19,7 @@ if playerControl{
 	var u=false;	
 }
 
-if !canDraw{
+if !canDraw or instance_exists(genDialogueScript_o){
 	if instance_exists(sword_o){
 		with sword_o{
 			with instance_create_layer(x,y,layer,returningSword_o){
@@ -82,7 +82,14 @@ if place_meeting(x,y+vsp*client_o.time_speed,solid_o){
 	while !place_meeting(x,y+sign(vsp),solid_o){
 		y += sign(vsp)
 	}
-	if (vsp)>1 audio_play_sound(jump_snd,1,false,0.5*vsp/vspMax,0,random_range(0.8,1.2))
+	if (vsp)>1{
+		audio_play_sound(jump_snd,1,false,0.5*vsp/vspMax,0,random_range(0.8,1.2))
+		for (var i=0; i<abs(vsp); i++){
+			var dust=instance_create_layer(x,bbox_bottom,"particles",dust_o)
+			if dust.hspeed==0 dust.hspeed=random_range(0,1)
+			dust.hspeed=(irandom(1)*2-1)*abs(dust.hspeed)
+		}
+	}
 	vsp = 0
 }
 if place_meeting(x+hsp*client_o.time_speed,y+vsp*client_o.time_speed,solid_o){
@@ -118,6 +125,10 @@ if place_meeting(x,y,solid_o) {
 scabbard.x=x
 scabbard.y=y
 
+if onGround and sign(hsp)!=image_xscale and hsp!=0{
+	instance_create_layer(x,bbox_bottom,"particles",dust_o)
+}
+
 if flipping{
 	drawAng=blend_angles(drawAng,drawAng-40*image_xscale,5/client_o.time_speed);
 }
@@ -148,7 +159,7 @@ if onGround{
 }
 
 
-if canDraw and drawing==0 and mouse_check_button(mb_left) and sword==noone{
+if canDraw and drawing==0 and mouse_check_button(mb_left) and sword==noone and !instance_exists(genDialogueScript_o){
 	spriteUpper = heroDraw1Upper_s
 	imageUpper=0
 	drawing=1
@@ -156,7 +167,7 @@ if canDraw and drawing==0 and mouse_check_button(mb_left) and sword==noone{
 	scabbard.image_index=1
 	if instance_exists(swordDefence_o) or instance_exists(returningSword_o) scabbard.image_index=3
 }
-if canDraw and drawing==0 and mouse_check_button(mb_right) and sword==noone{
+if canDraw and drawing==0 and mouse_check_button(mb_right) and sword==noone and !instance_exists(genDialogueScript_o){
 	spriteUpper = heroDraw2Upper_s
 	imageUpper=0
 	drawing=2
@@ -233,6 +244,7 @@ if hp!=hpLast{
 	hpLast=hp
 }
 if hp<=0{
+	client_o.deaths++;
 	client_o.endRoom = Lobby
 	client_o.roomTarget= Lobby
 }
