@@ -1,6 +1,6 @@
 
 if place_meeting(x,y,hero_o){
-	if keyboard_check(vk_space) and !instance_exists(genDialogueScript_o) and indic.image_index < 4{
+	if (keyboard_check(ord("E")) or keyboard_check(vk_enter)) and !instance_exists(genDialogueScript_o) and indic.image_index < 4{
 		var dia = instance_create_layer(x,y,"meta",genDialogueScript_o)
 		dia.functionName=opening_dialogue
 		dia.madeBy=id

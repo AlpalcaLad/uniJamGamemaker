@@ -12,14 +12,14 @@ var onWall = place_meeting(x+1,y,solid_o) or place_meeting(x-1,y,solid_o)
 if playerControl{
 	var r = keyboard_check(ord("D"))
 	var l = keyboard_check(ord("A"))
-	var u = keyboard_check(ord("W"))
+	var u = keyboard_check(ord("W")) or keyboard_check(vk_space)
 } else {
 	var r=false;
 	var l=false;
 	var u=false;	
 }
 
-if !canDraw or instance_exists(genDialogueScript_o){
+if !canDraw or (instance_exists(genDialogueScript_o) and room==Lobby){
 	if instance_exists(sword_o){
 		with sword_o{
 			with instance_create_layer(x,y,layer,returningSword_o){
@@ -104,8 +104,9 @@ if place_meeting(x+hsp*client_o.time_speed,y+vsp*client_o.time_speed,solid_o){
 y += vsp*client_o.time_speed
 if place_meeting(x,y,solid_o) {
 	if vsp==0{
-		instance_create_layer(x,y,"meta",genDialogueScript_o).functionName=physics_dialogue
+		if !client_o.physicsWarned instance_create_layer(x,y,"meta",genDialogueScript_o).functionName=physics_dialogue
 		vsp=1
+		client_o.physicsWarned=true
 	}
 	while place_meeting(x,y,solid_o) {y-=sign(vsp)}
 	vsp=0
@@ -114,8 +115,9 @@ if place_meeting(x,y,solid_o) {
 x += hsp*client_o.time_speed
 if place_meeting(x,y,solid_o) {
 	if hsp==0{
-		instance_create_layer(x,y,"meta",genDialogueScript_o).functionName=physics_dialogue
+		if !client_o.physicsWarned instance_create_layer(x,y,"meta",genDialogueScript_o).functionName=physics_dialogue
 		hsp=1
+		client_o.physicsWarned=true
 	}
 	while place_meeting(x,y,solid_o) {x-=sign(hsp)}
 	hsp=0
@@ -159,7 +161,7 @@ if onGround{
 }
 
 
-if canDraw and drawing==0 and mouse_check_button(mb_left) and sword==noone and !instance_exists(genDialogueScript_o){
+if canDraw and drawing==0 and mouse_check_button(mb_left) and sword==noone and (!(instance_exists(genDialogueScript_o)) or room!=Lobby){
 	spriteUpper = heroDraw1Upper_s
 	imageUpper=0
 	drawing=1
@@ -167,7 +169,7 @@ if canDraw and drawing==0 and mouse_check_button(mb_left) and sword==noone and !
 	scabbard.image_index=1
 	if instance_exists(swordDefence_o) or instance_exists(returningSword_o) scabbard.image_index=3
 }
-if canDraw and drawing==0 and mouse_check_button(mb_right) and sword==noone and !instance_exists(genDialogueScript_o){
+if canDraw and drawing==0 and mouse_check_button(mb_right) and sword==noone and (!(instance_exists(genDialogueScript_o)) or room!=Lobby){
 	spriteUpper = heroDraw2Upper_s
 	imageUpper=0
 	drawing=2

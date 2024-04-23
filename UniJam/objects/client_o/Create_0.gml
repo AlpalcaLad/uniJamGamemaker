@@ -17,6 +17,7 @@ pause=false
 music=true
 clickAllowed=false
 deaths=0
+physicsWarned=false
 
 //upgrades
 playerHealth=3

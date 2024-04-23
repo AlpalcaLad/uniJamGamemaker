@@ -30,8 +30,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"pressToTalk_s",
-    "path":"sprites/pressToTalk_s/pressToTalk_s.yy",
+    "name":"pressToTalk_s_1",
+    "path":"sprites/pressToTalk_s_1/pressToTalk_s_1.yy",
   },
   "spriteMaskId":null,
   "visible":true,

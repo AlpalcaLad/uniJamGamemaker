@@ -1,6 +1,6 @@
 
 if place_meeting(x,y,hero_o){
-	if keyboard_check(vk_space) and indic.image_index < 4{
+	if (keyboard_check(ord("E")) or keyboard_check(vk_enter)) and indic.image_index < 4{
 		client_o.endRoom = Shop
 		client_o.roomTarget= Shop
 	}
